@@ -27,7 +27,7 @@ return packer.startup(function(use)
   use 'nvim-lua/plenary.nvim'
   use { 'nvim-telescope/telescope.nvim', tag = '0.1.1' }
   -- color scheme
-  use 'bluz71/vim-nightfly-guicolors'
+  use { 'bluz71/vim-nightfly-guicolors', as = 'nightfly' }
   use 'szw/vim-maximizer'
   use 'norcalli/nvim-colorizer.lua'
   -- icons
@@ -35,7 +35,7 @@ return packer.startup(function(use)
   -- status line
   use 'nvim-lualine/lualine.nvim'
   -- buffer line
-  use {'akinsho/bufferline.nvim', tag = "v3.*"}
+  -- use {'akinsho/bufferline.nvim', tag = "v3.*"}
   -- file explorer
   use 'nvim-tree/nvim-tree.lua'
   -- indent visible
