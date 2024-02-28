@@ -28,3 +28,8 @@ keymap.set('n', '<leader>tp', ':tabp<CR>')
 
 -- vim-maximizer
 keymap.set('n', '<leader>sm', ':MaximizerToggle<CR>')
+
+keymap.set('n', 'j', 'gj')
+keymap.set('n', 'k', 'gk')
+keymap.set('n', 'H', '0')
+keymap.set('n', 'L', '$')
