@@ -67,7 +67,7 @@ return packer.startup(function(use)
     }
   }
   -- LSP UIs
-  use 'glepnir/lspsaga.nvim'
+  use 'nvimdev/lspsaga.nvim'
   -- vscode-like pictograms
   use 'onsails/lspkind.nvim'
   -- auto brackets
@@ -82,10 +82,9 @@ return packer.startup(function(use)
   -- formatting & linting
   use 'jose-elias-alvarez/null-ls.nvim'
   use 'jayp0521/mason-null-ls.nvim'
-  -- use 'MunifTanjim/prettier.nvim'
-  
-  -- markdown preview
-  use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
+  use 'MunifTanjim/prettier.nvim'
+--   -- markdown preview
+--   -- use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
 
   if packer_bootstrap then
     require('packer').sync()

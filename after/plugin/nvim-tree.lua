@@ -14,13 +14,13 @@ nvimtree.setup({
     width = 35,
     signcolumn = 'yes',
     cursorline = true,
-    mappings = {
-      list = {
-        { key = "u", action = "dir_up" },
-        { key = "v", action = "vsplit" },
-        { key = "x", action = "split" },
-      },
-    },
+    -- mappings = {
+    --   list = {
+    --     { key = "u", action = "dir_up" },
+    --     { key = "v", action = "vsplit" },
+    --     { key = "x", action = "split" },
+    --   },
+    -- },
   },
   renderer = {
     group_empty = true,
@@ -50,7 +50,7 @@ local api = require("nvim-tree.api")
 local function open_nvim_tree()
   api.tree.open()
 end
-vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })
+-- vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })
 
 
 vim.keymap.set('n', '<leader>e', api.tree.toggle, {})

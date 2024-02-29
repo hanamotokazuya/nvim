@@ -1,4 +1,4 @@
-local status, indent = pcall(require, 'indent_blankline')
+local status, indent = pcall(require, 'ibll')
 if not status then return end
 
 local opts = {
