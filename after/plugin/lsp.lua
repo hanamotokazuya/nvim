@@ -12,6 +12,10 @@ lsp.preset('recommended')
 lsp.ensure_installed({
   'tsserver',
   'rust_analyzer',
+  'lua_ls',
+  'yamlls',
+  'pyright',
+  'gopls',
 })
 
 lsp.configure('lua_ls', {
