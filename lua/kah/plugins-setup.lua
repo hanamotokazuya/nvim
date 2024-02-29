@@ -25,7 +25,7 @@ return packer.startup(function(use)
   use 'wbthomason/packer.nvim'
   -- lua functions that many plugins use
   use 'nvim-lua/plenary.nvim'
-  use { 'nvim-telescope/telescope.nvim', tag = '0.1.1' }
+  use { 'nvim-telescope/telescope.nvim', tag = '0.1.4' }
   -- color scheme
   use { 'bluz71/vim-nightfly-guicolors', as = 'nightfly' }
   use 'szw/vim-maximizer'
