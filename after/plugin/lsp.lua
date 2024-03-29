@@ -52,7 +52,7 @@ lsp.setup_nvim_cmp({
   },
 })
 
-lsp.on_attach(function(client, bufnr)
+lsp.on_attach(function(_, bufnr)
   local opts = {buffer = bufnr, noremap = true, silent = true}
 
   vim.keymap.set('n', '<C-j>', '<Cmd>Lspsaga show_line_diagnostics<CR>', opts)
@@ -67,7 +67,6 @@ lsp.on_attach(function(client, bufnr)
   vim.keymap.set('n', ']d', '<Cmd>Lspsaga diagnostic_jump_prev<CR>', opts)
   vim.keymap.set('n', '<leader>vca', function() vim.lsp.buf.code_action() end, opts)
   vim.keymap.set('n', '<leader>vrr', function() vim.lsp.buf.references() end, opts)
-  vim.keymap.set('n', 'tt', '<Cmd>Lspsaga term_toggle<CR>', opts)
   vim.keymap.set('i', '<C-h>', function() vim.lsp.buf.signature_help() end, opts)
 end)
 

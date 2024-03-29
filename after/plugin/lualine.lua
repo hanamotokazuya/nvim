@@ -25,6 +25,7 @@ lualine_nightfly.command = {
 local opts = {
   options = {
     theme = lualine_nightfly,
+    globalstatus = true,
   },
 }
 

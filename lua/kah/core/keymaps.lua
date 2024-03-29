@@ -19,11 +19,13 @@ keymap.set('', 'sk', '<C-w>k')
 keymap.set('', 'sj', '<C-w>j')
 keymap.set('', 'sl', '<C-w>l')
 -- tab
-keymap.set('n', '<leader>to', ':tabnew<CR>')
-keymap.set('n', '<leader>tx', ':tabclose<CR>')
-keymap.set('n', '<leader>tn', ':tabn<CR>')
-keymap.set('n', '<leader>tp', ':tabp<CR>')
+keymap.set('n', '<leader>to', ':tab split<CR>')
+keymap.set('n', '<leader>tq', ':tabclose<CR>')
+
+-- terminal
 keymap.set('t', '<Esc>', '<C-\\><C-n>')
+keymap.set('t', '<C-j>', '<Down>')
+keymap.set('t', '<C-k>', '<Up>')
 
 -- plugin keymaps
 

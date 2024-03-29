@@ -4,7 +4,7 @@ if not mason_null_ls_status then return end
 mason_null_ls.setup({
   ensure_installed = {
     'prettier',
-    'eslint_d',
+    -- 'eslint_d',
     'rustfmt',
   }
 })
@@ -24,7 +24,7 @@ null_ls.setup({
   sources = {
     formatting.prettier,
     formatting.rustfmt,
-    diagnostics.eslint_d,
+    -- diagnostics.eslint_d,
   },
   on_attach = function(client, bufnr)
     if client.supports_method("textDocument/formatting") then

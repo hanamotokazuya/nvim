@@ -47,9 +47,9 @@ nvimtree.setup({
 })
 local api = require("nvim-tree.api")
 -- open tree for startup
-local function open_nvim_tree()
-  api.tree.open()
-end
+-- local function open_nvim_tree()
+--   api.tree.open()
+-- end
 -- vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })
 
 

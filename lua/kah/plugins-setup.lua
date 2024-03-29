@@ -28,6 +28,8 @@ return packer.startup(function(use)
   use { 'nvim-telescope/telescope.nvim', tag = '0.1.4' }
   -- color scheme
   use { 'bluz71/vim-nightfly-guicolors', as = 'nightfly' }
+  use "savq/melange-nvim"
+  use "kevinm6/kurayami.nvim"
   use 'szw/vim-maximizer'
   use 'norcalli/nvim-colorizer.lua'
   -- icons
@@ -35,7 +37,7 @@ return packer.startup(function(use)
   -- status line
   use 'nvim-lualine/lualine.nvim'
   -- buffer line
-  -- use {'akinsho/bufferline.nvim', tag = "v3.*"}
+  -- use {'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons'}
   -- file explorer
   use 'nvim-tree/nvim-tree.lua'
   -- indent visible
@@ -85,6 +87,12 @@ return packer.startup(function(use)
   use 'MunifTanjim/prettier.nvim'
 --   -- markdown preview
 --   -- use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
+
+  use 'mattn/vim-goimports'
+  -- use 'darrikonn/vim-gofmt'
+
+  -- toggle terminal
+  use "akinsho/toggleterm.nvim"
 
   if packer_bootstrap then
     require('packer').sync()

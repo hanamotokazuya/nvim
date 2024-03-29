@@ -12,6 +12,9 @@ telescope.setup({
         ["<C-j>"] = actions.move_selection_next,
         ["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
       }
+    },
+    file_ignore_patterns = {
+      "node_modules/.*"
     }
   }
 })
@@ -26,3 +29,6 @@ vim.keymap.set('n', '<leader>w', function()
 end)
 vim.keymap.set('n', '<leader>g', builtin.live_grep, {})
 vim.keymap.set('n', '<leader>b', builtin.buffers, {})
+vim.keymap.set('n', '<leader>j', builtin.diagnostics, {})
+vim.keymap.set('n', '<leader>d', builtin.git_status, {})
+vim.keymap.set('n', '<leader>c', builtin.git_commits, {})
