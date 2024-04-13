@@ -51,6 +51,7 @@ vim.cmd [[highlight @boolean guifg=#AA8106 gui=nocombine]]
 -- コメント
 vim.cmd [[highlight Comment guifg=#00BB00 gui=nocombine]]
 vim.cmd [[highlight @comment guifg=#00BB00 gui=nocombine]]
+vim.cmd [[highlight DiagnosticUnnecessary guifg=#3B4B53 gui=nocombine]]
 -- タグ
 vim.cmd [[highlight @tag guifg=#0F76CC gui=nocombine]]
 -- variables and functions
