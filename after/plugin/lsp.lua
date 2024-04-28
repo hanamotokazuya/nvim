@@ -66,7 +66,6 @@ lsp.on_attach(function(_, bufnr)
   vim.keymap.set('n', '[d', '<Cmd>Lspsaga diagnostic_jump_next<CR>', opts)
   vim.keymap.set('n', ']d', '<Cmd>Lspsaga diagnostic_jump_prev<CR>', opts)
   vim.keymap.set('n', '<leader>vca', function() vim.lsp.buf.code_action() end, opts)
-  vim.keymap.set('n', '<leader>vrr', function() vim.lsp.buf.references() end, opts)
   vim.keymap.set('i', '<C-h>', function() vim.lsp.buf.signature_help() end, opts)
 end)
 
