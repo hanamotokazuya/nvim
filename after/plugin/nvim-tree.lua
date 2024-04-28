@@ -44,6 +44,10 @@ nvimtree.setup({
       error = "",
     },
   },
+  update_focused_file = {
+    enable = true,
+    update_cwd = true,
+  },
 })
 local api = require("nvim-tree.api")
 -- open tree for startup
