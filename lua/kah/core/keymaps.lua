@@ -36,6 +36,10 @@ keymap.set('n', 'j', 'gj')
 keymap.set('n', 'k', 'gk')
 keymap.set('n', 'H', '0')
 keymap.set('n', 'L', '$')
+keymap.set('x', 'j', 'gj')
+keymap.set('x', 'k', 'gk')
+keymap.set('x', 'H', '0')
+keymap.set('x', 'L', '$')
 
 -- hilight
 keymap.set('n', '<leader><leader>', function()
