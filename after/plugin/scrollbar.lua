@@ -17,6 +17,14 @@ scrollbar.setup({
     Info = { color = new_colors.blue },
     Hint = { color = new_colors.violet },
     Misc = { color = new_colors.blue },
-  }
+  },
+  handlers = {
+    cursor = true,
+    diagnostic = true,
+    gitsigns = true, -- Requires gitsigns
+    handle = true,
+    search = true, -- Requires hlslens
+    ale = false, -- Requires ALE
+  },
 })
 

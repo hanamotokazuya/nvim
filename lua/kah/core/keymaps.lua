@@ -41,8 +41,3 @@ keymap.set('x', 'k', 'gk')
 keymap.set('x', 'H', '0')
 keymap.set('x', 'L', '$')
 
--- hilight
-keymap.set('n', '<leader><leader>', function()
-  vim.fn.setreg('/', '\\<\\<' .. vim.fn.expand('<cword>') .. '\\>\\>')
-  vim.cmd('set hlsearch')
-end, { silent = true })

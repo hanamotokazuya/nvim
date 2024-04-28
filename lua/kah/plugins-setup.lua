@@ -94,6 +94,9 @@ return packer.startup(function(use)
   -- toggle terminal
   use "akinsho/toggleterm.nvim"
 
+  -- highlight search
+  use "kevinhwang91/nvim-hlslens"
+
   if packer_bootstrap then
     require('packer').sync()
   end
