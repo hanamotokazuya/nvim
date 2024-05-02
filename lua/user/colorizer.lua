@@ -1,10 +1,10 @@
 local M = {
-  "norcalli/nvim-colorizer.lua",
-  event = "VeryLazy",
+	"norcalli/nvim-colorizer.lua",
+	event = "VeryLazy",
 }
 
 function M.config()
-  require("colorizer").setup { "*" }
+	require("colorizer").setup({ "*" })
 end
 
 return M
