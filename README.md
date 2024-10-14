@@ -7,8 +7,8 @@ The Releases page provides pre-built binaries for Linux sysems.
 ```bash
 curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz
 sudo rm -rf /opt/nvim
-sudo tar -C /opt -xzf nvim-linux64.tar.gzu
-sudo rm nvim-linux64.tar.gzu
+sudo tar -C /opt -xzf nvim-linux64.tar.gz
+sudo rm nvim-linux64.tar.gz
 sudo mv /opt/nvim-linux64 /opt/nvim
 ```
 

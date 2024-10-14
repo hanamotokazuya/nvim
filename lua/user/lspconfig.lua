@@ -23,7 +23,7 @@ M.on_attach = function(client, bufnr)
 	lsp_keymaps(bufnr)
 
 	if client.supports_method("textDocument/inlayHint") then
-		vim.lsp.inlay_hint.enable(bufnr, true)
+		vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
 	end
 end
 
@@ -35,31 +35,20 @@ end
 
 M.toggle_inlay_hints = function()
 	local bufnr = vim.api.nvim_get_current_buf()
-	vim.lsp.inlay_hint.enable(bufnr, not vim.lsp.inlay_hint.is_enabled(bufnr))
+	vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = bufnr }), { bufnr = bufnr })
 end
 
 function M.config()
 	local wk = require("which-key")
-	wk.register({
-		["<leader>la"] = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
-		-- ["<leader>lf"] = {
-		--   "<cmd>lua vim.lsp.buf.format({async = true, filter = function(client) return client.name ~= 'typescript-tools' end})<cr>",
-		--   "Format",
-		-- },
-		-- ["<leader>li"] = { "<cmd>LspInfo<cr>", "Info" },
-		["<leader>lj"] = { "<cmd>lua vim.diagnostic.goto_next()<cr>", "Next Diagnostic" },
-		["<leader>lh"] = { "<cmd>lua require('user.lspconfig').toggle_inlay_hints()<cr>", "Hints" },
-		["<leader>lk"] = { "<cmd>lua vim.diagnostic.goto_prev()<cr>", "Prev Diagnostic" },
-		["<leader>ll"] = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
-		["<leader>lq"] = { "<cmd>lua vim.diagnostic.setloclist()<cr>", "Quickfix" },
-		["<leader>lr"] = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
-	})
-
-	wk.register({
-		["<leader>la"] = {
-			name = "LSP",
-			a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action", mode = "v" },
-		},
+	wk.add({
+		{ "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<cr>", desc = "Code Action" },
+		{ "<leader>lh", "<cmd>lua require('user.lspconfig').toggle_inlay_hints()<cr>", desc = "Hints" },
+		{ "<leader>lj", "<cmd>lua vim.diagnostic.goto_next()<cr>", desc = "Next Diagnostic" },
+		{ "<leader>lk", "<cmd>lua vim.diagnostic.goto_prev()<cr>", desc = "Prev Diagnostic" },
+		{ "<leader>ll", "<cmd>lua vim.lsp.codelens.run()<cr>", desc = "CodeLens Action" },
+		{ "<leader>lq", "<cmd>lua vim.diagnostic.setloclist()<cr>", desc = "Quickfix" },
+		{ "<leader>lr", "<cmd>lua vim.lsp.buf.rename()<cr>", desc = "Rename" },
+		{ "<leader>laa", "<cmd>lua vim.lsp.buf.code_action()<cr>", desc = "Code Action", mode = "v" },
 	})
 
 	local lspconfig = require("lspconfig")
@@ -69,9 +58,7 @@ function M.config()
 		"lua_ls",
 		"cssls",
 		"html",
-		-- "tsserver", manual
 		"eslint",
-		"tsserver",
 		"pyright",
 		"bashls",
 		"jsonls",
@@ -107,8 +94,14 @@ function M.config()
 
 	vim.diagnostic.config(default_diagnostic_config)
 
-	for _, sign in ipairs(vim.tbl_get(vim.diagnostic.config(), "signs", "values") or {}) do
-		vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = sign.name })
+	local diagnostic_config = vim.diagnostic.config()
+	if diagnostic_config then
+		local signs = vim.tbl_get(diagnostic_config, "signs", "values")
+		if signs then
+			for _, sign in ipairs(signs) do
+				vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = sign.name })
+			end
+		end
 	end
 
 	vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
@@ -134,15 +127,15 @@ function M.config()
 		lspconfig[server].setup(opts)
 	end
 
-	-- tsserver
+	-- ts_ls
 	local function patch(result)
-		if not vim.tbl_islist(result) or type(result) ~= "table" then
+		if not vim.islist(result) or type(result) ~= "table" then
 			return result
 		end
 
 		return { result[1] }
 	end
-	lspconfig.tsserver.setup({
+	lspconfig.ts_ls.setup({
 		handlers = {
 			["textDocument/definition"] = function(err, result, method, ...)
 				vim.lsp.handlers["textDocument/definition"](err, patch(result), method, ...)

@@ -8,19 +8,16 @@ local M = {
 
 function M.config()
 	local wk = require("which-key")
-	wk.register({
-		["<leader>bb"] = { "<cmd>Telescope buffers previewer=false<cr>", "Find" },
-		["<leader>fb"] = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
-		["<leader>fc"] = { "<cmd>Telescope git_commits<cr>", "Git Commits" },
-		["<leader>ff"] = { "<cmd>Telescope find_files<cr>", "Find files" },
-		-- ["<leader>fp"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
-		["<leader>ft"] = { "<cmd>Telescope live_grep<cr>", "Find Text" },
-		-- ["<leader>fh"] = { "<cmd>Telescope help_tags<cr>", "Help" },
-		-- ["<leader>fl"] = { "<cmd>Telescope resume<cr>", "Last Search" },
-		["<leader>fr"] = { "<cmd>Telescope oldfiles<cr>", "Recent File" },
-		["<leader>fs"] = { "<cmd>Telescope git_status<cr>", "Git Status" },
-		["<leader>fd"] = { "<cmd>Telescope diagnostics<cr>", "Diagnostics" },
-		["<leader>fa"] = { "<cmd>Telescope lsp_references<cr>", "References" },
+	wk.add({
+		{ "<leader>bb", "<cmd>Telescope buffers previewer=false<cr>", desc = "Find" },
+		{ "<leader>fa", "<cmd>Telescope lsp_references<cr>", desc = "References" },
+		{ "<leader>fb", "<cmd>Telescope git_branches<cr>", desc = "Checkout branch" },
+		{ "<leader>fc", "<cmd>Telescope git_commits<cr>", desc = "Git Commits" },
+		{ "<leader>fd", "<cmd>Telescope diagnostics<cr>", desc = "Diagnostics" },
+		{ "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find files" },
+		{ "<leader>fr", "<cmd>Telescope oldfiles<cr>", desc = "Recent File" },
+		{ "<leader>fs", "<cmd>Telescope git_status<cr>", desc = "Git Status" },
+		{ "<leader>ft", "<cmd>Telescope live_grep<cr>", desc = "Find Text" },
 	})
 
 	local icons = require("user.icons")

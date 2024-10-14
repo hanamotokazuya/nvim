@@ -8,7 +8,7 @@ local M = {
 function M.config()
 	local servers = {
 		"lua_ls",
-		"tsserver",
+		"ts_ls",
 		"rust_analyzer",
 		"gopls",
 		"pyright",
