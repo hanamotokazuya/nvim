@@ -1,13 +1,16 @@
 return {
 	settings = {
 		["rust-analyzer"] = {
+			checkOnSave = {
+				command = "clippy",
+			},
 			cargo = {
 				allFeatures = true,
 			},
 			inlayHints = {
 				bindingModeHints = {
 					-- Whether to show inlay type hints for binding modes.
-					enable = true,
+					enable = false,
 				},
 				chainingHints = {
 					-- Whether to show inlay type hints for method chains.
@@ -43,13 +46,13 @@ return {
 				},
 				implicitDrops = {
 					-- Whether to show implicit drop hints.
-					enable = true,
+					enable = false,
 				},
 				lifetimeElisionHints = {
 					-- Whether to show inlay type hints for elided lifetimes in function signatures.
-					enable = true,
+					enable = false,
 					-- Whether to prefer using parameter names as the name for elided lifetime hints if possible.
-					useParameterNames = true,
+					useParameterNames = false,
 				},
 				-- Maximum length for inlay hints. Set to null to have an unlimited length.
 				maxLength = 25,
@@ -59,7 +62,7 @@ return {
 				},
 				rangeExclusiveHints = {
 					-- Whether to show exclusive range inlay hints.
-					enable = true,
+					enable = false,
 				},
 				reborrowHints = {
 					-- Whether to show inlay hints for compiler inserted reborrows. This setting is deprecated in favor of rust-analyzer.inlayHints.expressionAdjustmentHints.enable.

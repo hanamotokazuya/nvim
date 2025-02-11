@@ -63,6 +63,7 @@ function M.config()
 		pickers = {
 			live_grep = {
 				theme = "dropdown",
+				layout_config = { width = 0.95 },
 			},
 
 			grep_string = {
